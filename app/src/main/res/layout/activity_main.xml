@@ -8,43 +8,58 @@
 
     <Button
         android:id="@+id/buttonStartOneTime"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start One time worker"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="onOneTimeWorkerClicked"
+        android:text="@string/start_one_time_worker"
         app:layout_constraintBottom_toTopOf="@+id/buttonStartRecurring"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="onOneTimeWorkerClicked"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <Button
         android:id="@+id/buttonStartRecurring"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Recurring worker"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="onRecurringWorkerClicked"
+        android:text="@string/start_recurring_worker"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStartOneTime"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStartChained"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="onRecurringWorkerClicked"/>
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <Button
         android:id="@+id/buttonStartChained"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Chained worker"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="onChainedWorkerClicked"
+        android:text="@string/start_chained_worker"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStartRecurring"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStartFailing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStartRecurring"
-        android:onClick="onChainedWorkerClicked"/>
+        app:layout_constraintVertical_chainStyle="packed"/>
 
     <Button
         android:id="@+id/buttonStartFailing"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Retrying worker"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="onRetryingWorkerClicked"
+        android:text="@string/start_retrying_worker"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStartChained"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonStartChained"
-        android:onClick="onRetryingWorkerClicked"/>
+        app:layout_constraintVertical_chainStyle="packed"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
