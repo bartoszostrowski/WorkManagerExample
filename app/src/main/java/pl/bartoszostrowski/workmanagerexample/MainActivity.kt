@@ -30,6 +30,16 @@ class MainActivity : AppCompatActivity() {
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork("recurring", ExistingPeriodicWorkPolicy.REPLACE, recurringRequest)
     }
 
+    fun onRetryingWorkerClicked(v: View) {
+        Log.d(TAG, "onRetryingWorkerClicked()")
+
+        val retryingRequest = OneTimeWorkRequest.Builder(RetryingWorker::class.java)
+            .setBackoffCriteria(BackoffPolicy.LINEAR, 1, TimeUnit.MINUTES)
+            .build()
+
+        WorkManager.getInstance(applicationContext).enqueue(retryingRequest)
+    }
+
     fun onChainedWorkerClicked(v: View) {
         Log.d(TAG, "onChainedWorkerClicked()")
 
