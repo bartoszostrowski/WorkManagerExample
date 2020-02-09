@@ -8,8 +8,6 @@ import androidx.work.WorkerParameters
 
 class UploadWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
-    private val TAG = "UploadWorker"
-
     override fun doWork(): Result {
         Log.d(TAG, "doWork() : Start work")
 
@@ -27,5 +25,9 @@ class UploadWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params)
         Log.d(TAG, "doWork() : Work is done. Took = " + (System.currentTimeMillis() - time) + " ms. Output = " + output.getString("value"))
 
         return Result.success(output)
+    }
+
+    companion object {
+        private const val TAG = "UploadWorker"
     }
 }

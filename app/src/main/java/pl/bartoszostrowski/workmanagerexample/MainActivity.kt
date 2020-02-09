@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
-    private val TAG = "MainActivity"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -80,5 +78,9 @@ class MainActivity : AppCompatActivity() {
             .then(compress)
             .then(upload)
             .enqueue()
+    }
+
+    companion object {
+        private const val TAG = "MainActivity"
     }
 }

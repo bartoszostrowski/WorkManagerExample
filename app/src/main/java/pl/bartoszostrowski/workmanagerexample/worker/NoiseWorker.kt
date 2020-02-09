@@ -8,8 +8,6 @@ import androidx.work.WorkerParameters
 
 class NoiseWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
-    private val TAG = "NoiseWorker"
-
     override fun doWork(): Result {
         val input = "Image"
 
@@ -27,5 +25,9 @@ class NoiseWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) 
         Log.d(TAG, "doWork() : Work is done. Took = " + (System.currentTimeMillis() - time) + " ms. Output = " + output.getString("value"))
 
         return Result.success(output)
+    }
+
+    companion object {
+        private const val TAG = "NoiseWorker"
     }
 }

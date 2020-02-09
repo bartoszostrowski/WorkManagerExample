@@ -7,8 +7,6 @@ import androidx.work.WorkerParameters
 
 class RecurringWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
-    private val TAG = "RecurringWorker"
-
     override fun doWork(): Result {
         Log.d(TAG, "doWork() : Start work")
 
@@ -20,5 +18,9 @@ class RecurringWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, para
         Log.d(TAG, "doWork() : Work is done. Took = " + (System.currentTimeMillis() - time) + " ms")
 
         return Result.success()
+    }
+
+    companion object {
+        private const val TAG = "RecurringWorker"
     }
 }

@@ -7,8 +7,6 @@ import androidx.work.WorkerParameters
 
 class RetryingWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
-    private val TAG = "RetryingWorker"
-
     override fun doWork(): Result {
         Log.d(TAG, "doWork() : Start work")
 
@@ -24,5 +22,9 @@ class RetryingWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, param
         Log.d(TAG, "doWork() : Work is done. Took = " + (System.currentTimeMillis() - time) + " ms")
 
         return Result.retry()
+    }
+
+    companion object {
+        private const val TAG = "RetryingWorker"
     }
 }

@@ -8,8 +8,6 @@ import androidx.work.WorkerParameters
 
 class CompressWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, params) {
 
-    private val TAG = "CompressWorker"
-
     override fun doWork(): Result {
         val input = inputData.getString("value")
 
@@ -27,5 +25,9 @@ class CompressWorker(ctx: Context, params: WorkerParameters) : Worker(ctx, param
         Log.d(TAG, "doWork() : Work is done. Took = " + (System.currentTimeMillis() - time) + " ms. Output = " + output.getString("value"))
 
         return Result.success(output)
+    }
+
+    companion object {
+        private const val TAG = "CompressWorker"
     }
 }
